@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:kafka="http://www.mulesoft.org/schema/mule/kafka" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/kafka http://www.mulesoft.org/schema/mule/kafka/current/mule-kafka.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="e9b0cd4e-d5b4-4722-bd7a-0a6d01f74337" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<configuration-properties doc:name="Configuration properties" doc:id="83fe6f99-71ba-4126-b635-cce801918995" file="runproprty.properties" />
+	<flow name="firstprogramFlow" doc:id="cc70b533-b6ad-46f6-af19-ebc2c1b48ee8" >
+		<http:listener doc:name="Listener" doc:id="882c5c7b-afbb-48f0-849d-d5f1f11b5727" config-ref="HTTP_Listener_config" path="/firstprogram"/>
+		<set-payload value="Hello Vinayaka Swamy" doc:name="Set Payload" doc:id="82418d96-7fcc-49b0-a28b-57adec08cb0f" />
+	</flow>
+</mule>
